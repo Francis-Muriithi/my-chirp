@@ -10,14 +10,20 @@ services:
   buildCommand: "./bin/render-build.sh"
   startCommand: bundle exec rails s 
   envVars:
-  - key: RAILS_MASTER_KEY
-    value: production
   - key: DATABASE_URL
     formDatabase:
       name: postgres
       property: connectionString
+  - key: REDI_HOST
+    fromServices: 
+      name: rails
+      type: redis
+      property: hostport
+  - key: RAILS_MASTER_KEY
+    sync: false
 - type: redis
   name: redis
+  env: ruby
   ipAllowList: []
   plan: free
   maxmemoryPolicy: noeviction
