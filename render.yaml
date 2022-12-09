@@ -6,12 +6,15 @@ services:
 - type: web
   name: rails
   env: ruby
+  plan: free
   buildCommand: "./bin/render-build.sh"
   startCommand: bundle exec rails s 
   envVars:
   - key: RAILS_MASTER_KEY
+    value: production
     sync: false
   - key: DATABASE_URL
+    generateValue: true
     formDatabase:
       name: postgres
       property: connectionString
