@@ -11,10 +11,12 @@ services:
   startCommand: bundle exec rails s 
   envVars:
   - key: DATABASE_URL
+    sync: false
     formDatabase:
       name: postgres
       property: connectionString
   - key: REDI_HOST
+    sync: false
     fromServices: 
       name: rails
       type: redis
