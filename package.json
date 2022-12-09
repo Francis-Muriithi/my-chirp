@@ -3,5 +3,8 @@
   "private": "true",
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds"
+  },
+  "dependencies": {
+    "esbuild": "^0.16.3"
   }
 }
